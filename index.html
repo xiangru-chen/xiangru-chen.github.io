@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-    <title>你好，GitHub</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCR字元影像辨識</title>
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <h1>覺得厲害</h1>
-  </body>
+    <h1>OCR字元影像辨識</h1>
+    <div class="upload-container">
+        <input type="file" id="imageUpload" accept="image/*">
+        <button id="submitBtn">提交圖片</button>
+    </div>
+    <div class="image-preview" id="imagePreview"></div>
+    <div class="result-container">
+        <h2>辨識結果</h2>
+        <textarea id="ocrResult" readonly></textarea>
+    </div>
+    <script src="script.js"></script>
+  </body>                                
 </html>
