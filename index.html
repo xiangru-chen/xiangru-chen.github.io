@@ -29,7 +29,6 @@
             margin-top: 10px;
         }
     </style>
-    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@2.1.1/dist/tesseract.min.js"></script>
 </head>
 <body>
     <h1>OCR字元影像辨識</h1>
@@ -65,15 +64,18 @@
             const reader = new FileReader();
 
             reader.onload = function(e) {
-                Tesseract.recognize(
-                    e.target.result,
-                    'eng',
-                    {
-                        logger: m => console.log(m)
+                fetch('http://localhost:5000/ocr', {
+                    method: 'POST',
+                    body: JSON.stringify({ image: e.target.result }),
+                    headers: {
+                        'Content-Type': 'application/json'
                     }
-                ).then(({ data: { text } }) => {
-                    ocrResult.value = text;
-                }).catch(error => {
+                })
+                .then(response => response.json())
+                .then(data => {
+                    ocrResult.value = data.text;
+                })
+                .catch(error => {
                     console.error('Error:', error);
                     alert('OCR處理失敗');
                 });
@@ -84,3 +86,4 @@
     </script>
 </body>
 </html>
+
