@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OCR字元影像辨識</title>
+    <title>OCR_字元影像辨識_Optical_Character_Recognition</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -35,11 +35,11 @@
     <h1>OCR字元影像辨識</h1>
     <div class="upload-container">
         <input type="file" id="imageUpload" accept="image/*">
-        <button id="submitBtn">提交圖片</button>
+        <button id="submitBtn">提交圖片_submit_file</button>
     </div>
     <div class="image-preview" id="imagePreview"></div>
     <div class="result-container">
-        <h2>辨識結果</h2>
+        <h2>辨識結果_recognition_result</h2>
         <textarea id="ocrResult" readonly></textarea>
     </div>
     <script>
@@ -57,7 +57,7 @@
             const ocrResult = document.getElementById('ocrResult');
 
             if (fileInput.files.length === 0) {
-                alert('請選擇一張圖片');
+                alert('請選擇一張圖片_please_upload_file');
                 return;
             }
 
@@ -75,7 +75,7 @@
                     ocrResult.value = text;
                 }).catch(error => {
                     console.error('Error:', error);
-                    alert('OCR處理失敗');
+                    alert('OCR_fail_處理失敗');
                 });
             };
 
